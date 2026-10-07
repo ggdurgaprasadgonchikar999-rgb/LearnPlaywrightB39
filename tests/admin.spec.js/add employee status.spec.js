@@ -1,13 +1,13 @@
-import { test, expect } from '@playwright/test';
+const { test, expect } = require('@playwright/test');
+const logindata = require('../../Testdata/login.json');
 
 test('Verify an admin can Employeestatus', async ({ page }) => {test.setTimeout(90000);
 
-
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
+  await page.getByRole('textbox', { name: 'Username' }).fill(logindata.username);
   await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
+  await page.getByRole('textbox', { name: 'Password' }).fill(logindata.password);
   await page.getByRole('button', { name: 'Login' }).click();
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
   await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
@@ -22,5 +22,6 @@ test('Verify an admin can Employeestatus', async ({ page }) => {test.setTimeout(
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/admin/employmentStatus');
   await expect(page.getByRole('heading', { name: 'Employment Status' })).toBeVisible();
 });
+
 
 
