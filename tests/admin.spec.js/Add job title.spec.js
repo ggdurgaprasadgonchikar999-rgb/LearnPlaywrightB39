@@ -22,3 +22,5 @@ test('Verify Admin can Add job Title', async ({ page }) => {
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewJobTitleList');
   await expect(page.getByRole('heading', { name: 'Job Titles' })).toBeVisible();
 });
+
+
