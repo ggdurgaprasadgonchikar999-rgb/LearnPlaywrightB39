@@ -1,8 +1,13 @@
 import { test, expect } from '@playwright/test';
 
-import logindata from "../testdata/login.json";
-import postdata from "../testdata/buzz/Buzzpost.json";
+import logindata from "../Testdata/login.json";
 
+let postdata;
+try {
+  postdata = require('../Testdata/buzzpost.json');
+} catch {
+  postdata = { message: 'haiiiiiiiii' };
+}
 
 test('test', async ({ page }) => {
   test.setTimeout(90000);
