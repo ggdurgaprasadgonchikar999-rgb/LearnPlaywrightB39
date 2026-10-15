@@ -13,10 +13,10 @@ await page.getByRole('textbox', { name: 'Current Address' }).fill(data['Current 
 await page.locator('#permanentAddress').fill(data['Permanent Address']);
 await page.getByRole('button', { name: 'Submit' }).click();
 
-await expect(page.getByText('Name:Naveen', { exact: true })).toBeVisible();
-await expect(page.getByText('Email:Naveen123456@gmai.com', { exact: true })).toBeVisible();
-await expect(page.getByText('Current Address :123 Main Street', { exact: true })).toBeVisible();
-await expect(page.getByText('Permananet Address :456 Elm Street', { exact: true })).toBeVisible();
+await expect(page.getByText(`Name:${data['Full name']}`, { exact: true })).toBeVisible();
+await expect(page.getByText(`Email:${data.Email}`, { exact: true })).toBeVisible();
+await expect(page.getByText(`Current Address :${data['Current Address']}`, { exact: true })).toBeVisible();
+await expect(page.getByText(`Permananet Address :${data['Permanent Address']}`, { exact: true })).toBeVisible();
 
 
 
