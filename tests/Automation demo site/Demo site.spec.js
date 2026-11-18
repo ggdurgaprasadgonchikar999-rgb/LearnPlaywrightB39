@@ -18,6 +18,10 @@ test('Verify register in automation demo site', async ({ page }) => {
   await registrationPage.locator('textarea').first().fill(data['Address']);
   await registrationPage.locator('input[type="email"]').fill(data['Email']);
   await registrationPage.locator('input[type="tel"]').fill(data['phone number']);
+
+
+
+  
 });
 
 
